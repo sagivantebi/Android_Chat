@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FreakNer</string>
+    <string name="login_etUsername">Username</string>
+    <string name="login_etPassword">Password</string>
+    <string name="login">Login</string>
+    <string name="freaknet">FreakNet</string>
+    <string name="not_register_yet">Not Register Yet?</string>
+    <string name="login_etpasswordver">login_etPasswordVer</string>
+    <string name="nickname">Nickname</string>
+    <string name="type_password_again">type password again</string>
+    <string name="btnregisteralready">btnRegisterAlready</string>
+    <string name="register">register</string>
+    <string name="already_has_a_user">Already has a user</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="write_new_message">Write New Message</string>
+    <string name="sendmessage">sendMessage</string>
+</resources>
