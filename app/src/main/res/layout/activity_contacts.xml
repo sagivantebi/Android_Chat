@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:background="@color/purple_200"
             android:text="@string/freaknet"
-            android:textSize="35dp" />
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageSetting"
@@ -48,17 +48,23 @@
             android:layout_height="match_parent"
             android:background="#CF9C8F"
             app:srcCompat="@drawable/ic_settings" />
-
-
     </LinearLayout>
-
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="40dp"
+        tools:ignore="MissingConstraints">
     <ListView
         android:id="@+id/ListViewContacts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="406dp"
-        android:paddingTop="40dp">
-    </ListView>
+        tools:layout_editor_absoluteX="406dp">
 
+    </ListView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
