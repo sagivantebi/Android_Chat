@@ -22,6 +22,7 @@
             android:id="@+id/addFormUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Add This Username"
             android:padding="10dp"></EditText>
 
         <Button

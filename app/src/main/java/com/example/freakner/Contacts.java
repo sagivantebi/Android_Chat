@@ -6,6 +6,7 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -27,6 +28,12 @@ public class Contacts extends AppCompatActivity {
         com.google.android.material.floatingactionbutton.FloatingActionButton btnAddContact = findViewById(R.id.btnAddContact);
         btnAddContact.setOnClickListener(v -> {
             Intent i = new Intent(this,AddForm.class);
+            startActivity(i);
+        });
+
+        ImageView imageSetting = findViewById(R.id.imageSetting);
+        imageSetting.setOnClickListener(v -> {
+            Intent i = new Intent(this,Settings.class);
             startActivity(i);
         });
 

@@ -4,25 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E31B1B"
-    tools:context=".Contacts">
+    android:background="#E8CDCB"
+    android:orientation="vertical"
+    tools:context=".Settings">
 
-    <ListView
-        android:id="@+id/ListViewContacts"
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E8CDCB">
-
-    </ListView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddContact"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_add"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/updateFormNickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Change Nickname"
+            android:padding="10dp"></EditText>
+
+        <Button
+            android:id="@+id/saveNewNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="Save"></Button>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -30,34 +43,24 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="53dp"
             android:layout_height="match_parent"
-            android:background="@color/purple_200"
             android:scrollbarSize="30dp"
             app:srcCompat="@drawable/ic_chat" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="301dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_200"
             android:text="@string/freaknet"
             android:textSize="35dp" />
 
-        <ImageView
-            android:id="@+id/imageSetting"
-            android:layout_width="52dp"
-            android:layout_height="match_parent"
-            android:background="#CF9C8F"
-            app:srcCompat="@drawable/ic_settings" />
-
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

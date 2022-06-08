@@ -4,17 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E8CDCB"
     tools:context=".Chat">
 
     <ListView
         android:id="@+id/listOneContact"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="364dp"></ListView>
 
-<!--    <ListView-->
-<!--        android:id="@+id/ListViewMessages"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"></ListView>-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="53dp"
+            android:layout_height="match_parent"
+            android:scrollbarSize="30dp"
+            app:srcCompat="@drawable/ic_chat" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/freaknet"
+            android:textSize="35dp" />
+
+
+    </LinearLayout>
+
+    <!--    <ListView-->
+    <!--        android:id="@+id/ListViewMessages"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"></ListView>-->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -27,28 +56,27 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
+        <EditText
+            android:id="@+id/new_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/write_new_message"
+            android:inputType="textPersonName"
+            tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/new_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/write_new_message"
-        android:inputType="textPersonName"
-        tools:ignore="MissingConstraints" />
 
-
-    <Button
-        android:id="@+id/btn_sendMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:text="@string/sendmessage"
-        tools:ignore="MissingConstraints" />
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_sendMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:text="SEND"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
