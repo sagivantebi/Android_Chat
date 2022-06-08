@@ -14,4 +14,5 @@
     <string name="retype_password">Retype Password</string>
     <string name="write_new_message">Write New Message</string>
     <string name="sendmessage">sendMessage</string>
+    <string name="send">SEND</string>
 </resources>
