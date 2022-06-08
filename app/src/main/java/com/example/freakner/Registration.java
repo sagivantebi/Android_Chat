@@ -14,14 +14,12 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         Button btnRegisterAlready = findViewById(R.id.btnRegisterAlready);
         btnRegisterAlready.setOnClickListener(v -> {
-            Intent i = new Intent(this, Login.class);
-            startActivity(i);
+            finish();
         });
 
         Button btn_Register = findViewById(R.id.btn_Register);
         btn_Register.setOnClickListener(v -> {
-            Intent i = new Intent(this, Login.class);
-            startActivity(i);
+            finish();
         });
     }
 

@@ -14,8 +14,7 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         Button saveNewNickname = findViewById(R.id.saveNewNickname);
         saveNewNickname.setOnClickListener(v -> {
-            Intent i = new Intent(this, Contacts.class);
-            startActivity(i);
+            finish();
         });
     }
 }

@@ -4,16 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E31B1B"
+    android:background="#FFFFFF"
     tools:context=".Contacts">
-
-    <ListView
-        android:id="@+id/ListViewContacts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E8CDCB">
-
-    </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddContact"
@@ -25,6 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -58,6 +51,14 @@
 
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/ListViewContacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="406dp"
+        android:paddingTop="40dp">
+    </ListView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
