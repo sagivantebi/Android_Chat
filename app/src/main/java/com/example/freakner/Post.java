@@ -3,18 +3,33 @@ package com.example.freakner;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
 @Entity
 public class Post {
-    @PrimaryKey(autoGenerate=true)
+    @PrimaryKey(autoGenerate = true)
     private int id;
-    private String content;
+    private String Name ;
+    public String Last;
+    public String server;
+    public String LastDate;
 
-    public Post() {
+    public Post(int id, String name, String last, String server) {
+        this.id = id;
+        Name = name;
+        Last = last;
+        this.server = server;
+//        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+//        String date = df.format(Calendar.getInstance().getTime());
+        this.LastDate = "date";
+
     }
 
-    public Post(int id, String content) {
-        this.id = id;
-        this.content = content;
+    public Post() {
     }
 
     public int getId() {
@@ -25,19 +40,46 @@ public class Post {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getName() {
+        return Name;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getLast() {
+        return Last;
+    }
+
+    public void setLast(String last) {
+        Last = last;
+    }
+
+    public String getServer() {
+        return server;
+    }
+
+    public void setServer(String server) {
+        this.server = server;
+    }
+
+    public String getLastDate() {
+        return LastDate;
+    }
+
+    public void setLastDate(String lastDate) {
+        LastDate = lastDate;
     }
 
     @Override
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", content='" + content + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Last='" + Last + '\'' +
+                ", server='" + server + '\'' +
+                ", LastDate='" + LastDate + '\'' +
                 '}';
     }
 }

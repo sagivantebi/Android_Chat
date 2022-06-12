@@ -15,4 +15,6 @@
     <string name="write_new_message">Write New Message</string>
     <string name="sendmessage">sendMessage</string>
     <string name="send">SEND</string>
+    <string name="BaseUrl">http://localhost:5103/api/</string>
+    <string name="BaseUrlApi">http://10.0.2.2:5103/api/</string>
 </resources>

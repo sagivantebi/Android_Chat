@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -12,24 +13,33 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.PostAPI;
+import viewodels.PostsViewModel;
+
 public class Contacts extends AppCompatActivity {
     List<Post> listConstacts = new ArrayList<>();
     private AppDB db;
     private PostCon p;
     private ArrayAdapter<Post> adapter;
     private ListView lvContacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
         lvContacts = findViewById(R.id.ListViewContacts);
-        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB").allowMainThreadQueries().build();
+        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB4").allowMainThreadQueries().build();
         p = db.postCon();
         com.google.android.material.floatingactionbutton.FloatingActionButton btnAddContact = findViewById(R.id.btnAddContact);
         btnAddContact.setOnClickListener(v -> {
             Intent i = new Intent(this,AddForm.class);
             startActivity(i);
         });
+
+        PostAPI postAPI = new PostAPI();
+        postAPI.get();
+        Log.i("hi","hi");
+
 
         ImageView imageSetting = findViewById(R.id.imageSetting);
         imageSetting.setOnClickListener(v -> {
