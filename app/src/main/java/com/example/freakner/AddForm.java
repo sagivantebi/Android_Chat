@@ -22,7 +22,7 @@ public class AddForm extends AppCompatActivity {
         Button addFormButton = findViewById(R.id.addFormButton);
         addFormButton.setOnClickListener(v -> {
             EditText editText = findViewById(R.id.addFormUsername);
-            Post post = new Post(0,editText.getText().toString(),"Hi","s1");
+            Post post = new Post(editText.getText().toString(),"Hi","s1");
             p.insert(post);
             finish();
         });

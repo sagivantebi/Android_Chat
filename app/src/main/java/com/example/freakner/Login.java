@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import api.PostAPI;
-import viewodels.PostsViewModel;
+//import viewodels.PostsViewModel;
 
 public class Login extends AppCompatActivity {
-    private PostsViewModel viewModel;
+//    private PostsViewModel viewModel;
     List<User> listConstacts = new ArrayList<>();
     private UserCon p;
     private ArrayAdapter<User> adapter;

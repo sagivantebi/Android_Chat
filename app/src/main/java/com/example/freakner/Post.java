@@ -1,5 +1,7 @@
 package com.example.freakner;
 
+import android.widget.ImageView;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -18,14 +20,13 @@ public class Post {
     public String server;
     public String LastDate;
 
-    public Post(int id, String name, String last, String server) {
-        this.id = id;
-        Name = name;
-        Last = last;
+    public Post(String name, String last, String server) {
+        this.Name = name;
+        this.Last = last;
         this.server = server;
-//        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
-//        String date = df.format(Calendar.getInstance().getTime());
-        this.LastDate = "date";
+        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+        String date = df.format(Calendar.getInstance().getTime());
+        this.LastDate = date;
 
     }
 
