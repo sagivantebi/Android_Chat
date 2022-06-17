@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705079850930",
+    "project_id": "freakner-30165",
+    "storage_bucket": "freakner-30165.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705079850930:android:4a498fea251bea7f5bd6ab",
+        "android_client_info": {
+          "package_name": "com.example.freakner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705079850930-sssvfr2m8jbnjeduq9heo98jkc25avja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArHZ8w_dmQv8yF6dY1n6VjjnrpjPW7TxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705079850930-sssvfr2m8jbnjeduq9heo98jkc25avja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
