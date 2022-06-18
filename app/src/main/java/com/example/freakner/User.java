@@ -1,12 +1,16 @@
 package com.example.freakner;
 
+import android.text.Editable;
+
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.List;
+import java.util.ArrayList;
+
 @Entity
 public class User {
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = false) @NonNull
     public String username ;
 
     public String password;
@@ -17,20 +21,22 @@ public class User {
 
     public String server;
 
-    public List<Void> chats;
-    public List<Void> contacts;
 
-    public User() {
-    }
+//    public User(String username, String password, String nickName, String image, String server, List<Void> chats, List<Void> contacts) {
+//        this.username = username;
+//        this.password = password;
+//        this.nickName = nickName;
+//        this.image = image;
+//        this.server = server;
+//        this.chats = chats;
+//        this.contacts = contacts;
+//    }
 
-    public User(String username, String password, String nickName, String image, String server, List<Void> chats, List<Void> contacts) {
+    public User(String username, String password, String nickName, String server) {
         this.username = username;
         this.password = password;
         this.nickName = nickName;
-        this.image = image;
         this.server = server;
-        this.chats = chats;
-        this.contacts = contacts;
     }
 
     @Override
@@ -41,8 +47,6 @@ public class User {
                 ", nickName='" + nickName + '\'' +
                 ", image='" + image + '\'' +
                 ", server='" + server + '\'' +
-                ", chats=" + chats +
-                ", contacts=" + contacts +
                 '}';
     }
 
@@ -86,19 +90,4 @@ public class User {
         this.server = server;
     }
 
-    public List<Void> getChats() {
-        return chats;
-    }
-
-    public void setChats(List<Void> chats) {
-        this.chats = chats;
-    }
-
-    public List<Void> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(List<Void> contacts) {
-        this.contacts = contacts;
-    }
 }

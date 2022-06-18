@@ -19,15 +19,16 @@ public class Post {
     public String Last;
     public String server;
     public String LastDate;
+    public String userId;
 
-    public Post(String name, String last, String server) {
+    public Post(String name, String last, String server, String uId) {
         this.Name = name;
         this.Last = last;
         this.server = server;
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         String date = df.format(Calendar.getInstance().getTime());
         this.LastDate = date;
-
+        userId = uId;
     }
 
     public Post() {

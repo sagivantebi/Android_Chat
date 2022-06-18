@@ -16,9 +16,6 @@ public interface MesCon {
     @Query("SELECT * FROM message")
     List<Message> index();
 
-    @Query("SELECT * FROM message WHERE User1 = :user1 and User2 = :user2")
-    List<Message> index(String user1,String user2);
-
     @Insert
     void insert(Message... messages);
 
@@ -27,4 +24,8 @@ public interface MesCon {
 
     @Update
     void update(Message... messages);
+
+    @Query("SELECT * FROM message WHERE chatId = :id")
+    List<Message> getMessages(int id);
+
 }

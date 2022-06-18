@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -24,4 +25,7 @@ public interface UserCon {
 
     @Update
     void update(User... users);
+//
+//    @Query("SELECT * FROM USer WHERE userId = :userId")
+//    List<Post> getContacts(String userId);
 }

@@ -24,4 +24,8 @@ public interface PostCon {
 
     @Update
     void update(Post... contacts);
+
+    @Query("SELECT * FROM Post WHERE userId = :username")
+    List<Post> getContacts(String username);
+
 }

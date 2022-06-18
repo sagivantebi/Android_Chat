@@ -28,7 +28,6 @@ public class CustomListAdapter extends ArrayAdapter<Post> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         Post post = getItem(position);
-
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.activity_contact_left_box, parent, false);
         }

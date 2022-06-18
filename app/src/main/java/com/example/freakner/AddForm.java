@@ -15,14 +15,14 @@ public class AddForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_form);
-
-        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB4").allowMainThreadQueries().build();
+        String username = getIntent().getStringExtra("username");
+        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
         p = db.postCon();
 
         Button addFormButton = findViewById(R.id.addFormButton);
         addFormButton.setOnClickListener(v -> {
             EditText editText = findViewById(R.id.addFormUsername);
-            Post post = new Post(editText.getText().toString(),"Hi","s1");
+            Post post = new Post(editText.getText().toString(),"Hi","s1", username);
             p.insert(post);
             finish();
         });

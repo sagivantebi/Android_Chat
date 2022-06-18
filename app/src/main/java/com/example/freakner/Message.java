@@ -4,6 +4,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 @Entity
 public class Message {
     @PrimaryKey(autoGenerate=true)
@@ -12,20 +16,21 @@ public class Message {
     public String Type;
     public String Created;
     public Boolean Sent;
-    public String User1;
-    public String User2;
+//    public String User1;
+//    public String User2;
+    public int chatId;
 
     public Message() {
     }
 
-    public Message(int id, String content, String type, String created, Boolean sent, String user1, String user2) {
-        id = id;
+    public Message(String content, String type, Boolean sent, int chatId) {
         Content = content;
         Type = type;
-        Created = created;
+        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+        String date = df.format(Calendar.getInstance().getTime());
+        Created = date;
         Sent = sent;
-        User1 = user1;
-        User2 = user2;
+        this.chatId = chatId;
     }
 
     public int getId() {
@@ -66,22 +71,6 @@ public class Message {
 
     public void setSent(Boolean sent) {
         Sent = sent;
-    }
-
-    public String getUser1() {
-        return User1;
-    }
-
-    public void setUser1(String user1) {
-        User1 = user1;
-    }
-
-    public String getUser2() {
-        return User2;
-    }
-
-    public void setUser2(String user2) {
-        User2 = user2;
     }
 
     @Override

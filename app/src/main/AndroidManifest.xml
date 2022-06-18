@@ -30,7 +30,7 @@
             android:name=".Settings"
             android:exported="false" />
         <activity
-            android:name=".Chat"
+            android:name=".ChatScreen"
             android:exported="false" />
         <activity
             android:name=".AddForm"

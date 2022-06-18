@@ -1,9 +1,13 @@
 package api;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.example.freakner.MyApplication;
 import com.example.freakner.Post;
 import com.example.freakner.R;
 import com.example.freakner.User;
+import com.example.freakner.UserCon;
 
 import java.util.List;
 
@@ -25,7 +29,7 @@ public class PostAPI {
 //        this.dao = dao;
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(MyApplication.context.getString(R.string.BaseUrlApi))
+                .baseUrl(MyApplication.context.getString(R.string.BaseContactApiUrl))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
@@ -45,5 +49,21 @@ public class PostAPI {
             }
         });
     return posts[0];
+    }
+    public void addContact(Context context, String username, Cont c){
+        Call<Void> call = webServiceAPI.addContact(username, c);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(context, "Added Contact successfully", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(context, "Couldnt add contact", Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
 }

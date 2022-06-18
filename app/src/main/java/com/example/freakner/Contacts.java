@@ -1,20 +1,16 @@
 package com.example.freakner;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 //import adapters.PostListAdapter;
 import api.PostAPI;
 
@@ -26,18 +22,20 @@ public class Contacts extends AppCompatActivity {
     private PostCon p;
     private ArrayAdapter<Post> adapter;
     private ListView lvContacts;
+    String username;
 //    private PostListAdapter adapterRec;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
-        lvContacts = findViewById(R.id.ListViewContacts);
-
-        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB4").allowMainThreadQueries().build();
+        this.lvContacts = findViewById(R.id.ListViewContacts);
+        String username = getIntent().getStringExtra("username");
+        this.username = username;
+        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
         p = db.postCon();
         com.google.android.material.floatingactionbutton.FloatingActionButton btnAddContact = findViewById(R.id.btnAddContact);
         btnAddContact.setOnClickListener(v -> {
-            Intent i = new Intent(this,AddForm.class);
+            Intent i = new Intent(this,AddForm.class).putExtra("username", username);
             startActivity(i);
         });
 
@@ -52,20 +50,22 @@ public class Contacts extends AppCompatActivity {
             startActivity(i);
         });
 
-        listConstacts = (ArrayList<Post>) p.index();
-        adapter = new CustomListAdapter(getApplicationContext(), listConstacts);
-        lvContacts.setAdapter(adapter);
+        this.listConstacts = (ArrayList<Post>) p.getContacts(username);
+        this.adapter = new CustomListAdapter(getApplicationContext(), listConstacts);
 
-        lvContacts.setOnItemLongClickListener((adapterView,view,i,l) ->{
+        this.lvContacts.setAdapter(this.adapter);
+
+       this.lvContacts.setOnItemLongClickListener((adapterView,view,i,l) ->{
             Post post = listConstacts.remove(i);
             p.delete(post);
             adapter.notifyDataSetChanged();
             return true;
         });
 
-        lvContacts.setOnItemClickListener((adapterView,view,i,l) ->{
-            Intent intent = new Intent(this,Chat.class);
+        this.lvContacts.setOnItemClickListener((adapterView,view,i,l) ->{
+            Intent intent = new Intent(this, ChatScreen.class);
             intent.putExtra("id",listConstacts.get(i).getId());
+            intent.putExtra("username", username);
             startActivity(intent);
         });
 
@@ -108,7 +108,7 @@ public class Contacts extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         listConstacts.clear();
-        listConstacts.addAll(p.index());
+        listConstacts.addAll(p.getContacts(this.username));
         adapter.notifyDataSetChanged();
 //        adapterRec.notifyDataSetChanged();
 
