@@ -7,6 +7,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import api.ApiUser;
 
 @Entity
 public class User {
@@ -32,7 +35,14 @@ public class User {
 //        this.contacts = contacts;
 //    }
 
-    public User(String username, String password, String nickName, String server) {
+    public User(ApiUser u) {
+        this.username = u.username;
+        this.password = u.password;
+        this.nickName = u.nickName;
+        this.server = u.server;
+    }
+
+    public User(String username, String password, String nickName, String image, String server) {
         this.username = username;
         this.password = password;
         this.nickName = nickName;

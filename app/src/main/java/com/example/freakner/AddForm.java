@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import api.Cont;
+import api.PostAPI;
+
 public class AddForm extends AppCompatActivity {
 
     private AppDB db;
@@ -24,6 +27,8 @@ public class AddForm extends AppCompatActivity {
             EditText editText = findViewById(R.id.addFormUsername);
             Post post = new Post(editText.getText().toString(),"Hi","s1", username);
             p.insert(post);
+            PostAPI postAPI = new PostAPI();
+            postAPI.addContact(getApplicationContext(), username, new Cont(post.getName(), post.getName(), post.getServer()));
             finish();
         });
     }

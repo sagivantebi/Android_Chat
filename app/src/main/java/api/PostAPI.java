@@ -1,17 +1,15 @@
 package api;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.freakner.MyApplication;
 import com.example.freakner.Post;
 import com.example.freakner.R;
-import com.example.freakner.User;
-import com.example.freakner.UserCon;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import api.WebServiceAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,27 +27,13 @@ public class PostAPI {
 //        this.dao = dao;
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(MyApplication.context.getString(R.string.BaseContactApiUrl))
+                .baseUrl(MyApplication.context.getString(R.string.BaseUrlApi))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         webServiceAPI = retrofit.create(WebServiceAPI.class);
     }
 
-    public List<User> get() {
-        Call<List<User>> call = webServiceAPI.getUsers();
-        final List<User>[] posts = new List[]{null};
-        call.enqueue(new Callback<List<User>>() {
-            @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-               posts[0] = response.body();
-            }
 
-            @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-            }
-        });
-    return posts[0];
-    }
     public void addContact(Context context, String username, Cont c){
         Call<Void> call = webServiceAPI.addContact(username, c);
         call.enqueue(new Callback<Void>() {
@@ -66,4 +50,22 @@ public class PostAPI {
             }
         });
     }
+    public void sendMess(Context context, String username, String contact, Mess m){
+        Call<Void> call = webServiceAPI.sendMessage(contact, username, m);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(context, "sent message successfully", Toast.LENGTH_SHORT).show();
+                Log.d("errMess", response.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(context, "Couldnt send message", Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
 }

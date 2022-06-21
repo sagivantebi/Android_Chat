@@ -38,7 +38,7 @@ public class Registration extends AppCompatActivity {
                 Toast.makeText(context, "username already exists", Toast.LENGTH_LONG).show();
                 return;
             }
-            User newUser = new User(username.getText().toString(), password.getText().toString(), nickname.getText().toString(), "s1");
+            User newUser = new User(username.getText().toString(), password.getText().toString(), nickname.getText().toString(), "", "s1");
             insertUser(p,  newUser);
             finish();
         });

@@ -3,7 +3,6 @@ package com.example.freakner;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,6 +11,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import api.Mess;
+import api.PostAPI;
 
 public class ChatScreen extends AppCompatActivity {
 
@@ -37,6 +39,8 @@ public class ChatScreen extends AppCompatActivity {
         m = db.mesCon();
         int id = getIntent().getExtras().getInt("id");
         this.id = id;
+        String username = getIntent().getStringExtra("username");
+        String contact = getIntent().getStringExtra("contact");
         listMessages = m.getMessages(id);
         adapterMessage = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listMessages);
         lvMessages.setAdapter(adapterMessage);
@@ -47,6 +51,8 @@ public class ChatScreen extends AppCompatActivity {
 //            Message message = new Message(0, editText.getText().toString(), "text", "date", true, "", "");
             Message message = new Message(editText.getText().toString(), "text", true, id);
             insertMessage(message);
+            PostAPI postAPI = new PostAPI();
+            postAPI.sendMess(getApplicationContext(), username, contact,new Mess(editText.getText().toString()));
             adapterMessage.add(message);
             this.adapterMessage.notifyDataSetChanged();
             editText.getText().clear();

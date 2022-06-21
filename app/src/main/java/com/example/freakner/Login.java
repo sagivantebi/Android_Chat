@@ -20,7 +20,9 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.util.ArrayList;
 import java.util.List;
 
+import api.ApiUser;
 import api.PostAPI;
+import api.UserAPI;
 //import viewodels.PostsViewModel;
 
 public class Login extends AppCompatActivity {
@@ -39,21 +41,27 @@ public class Login extends AppCompatActivity {
         EditText username = findViewById(R.id.editTextTextPersonName);
         EditText password = findViewById(R.id.editTextTextPassword);
 
+        AppDB db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
+        UserCon p = db.userCon();
+        Context context = getApplicationContext();
+
+        if(p.index().isEmpty()){
+            UserAPI userAPI = new UserAPI();
+            userAPI.get(db);
+        }
+
         btnNotRegister.setOnClickListener(v -> {
             Intent i = new Intent(this,Registration.class);
             startActivity(i);
         });
 
         btnLogin.setOnClickListener(v -> {
-            AppDB db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
-            UserCon p = db.userCon();
-            Context context = getApplicationContext();
-
             User attempted = p.get(username.getText().toString());
             if(attempted == null){
-                Toast.makeText(context, "No such Username", Toast.LENGTH_LONG).show();
-                return;
-            }
+                    Toast.makeText(context, "No such Username", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
             if(!attempted.password.equals(password.getText().toString())){
                 Toast.makeText(context, "Wrong password", Toast.LENGTH_LONG).show();
                 return;
@@ -76,6 +84,9 @@ public class Login extends AppCompatActivity {
 
 
     }
+
+
+
 
     @Override
     protected void onStart() {

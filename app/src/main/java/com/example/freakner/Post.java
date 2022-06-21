@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import api.ApiContact;
+
 @Entity
 public class Post {
     @PrimaryKey(autoGenerate = true)
@@ -29,6 +31,13 @@ public class Post {
         String date = df.format(Calendar.getInstance().getTime());
         this.LastDate = date;
         userId = uId;
+    }
+    public Post(ApiContact a, String userId){
+        this.Name = a.name;
+        this.Last = a.last;
+        this.server = a.server;
+        this.LastDate = a.lastdate;
+        this.userId = userId;
     }
 
     public Post() {

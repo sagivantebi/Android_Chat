@@ -28,4 +28,7 @@ public interface PostCon {
     @Query("SELECT * FROM Post WHERE userId = :username")
     List<Post> getContacts(String username);
 
+    @Query("SELECT id FROM Post WHERE name = :contact AND userId= :username")
+    int getChatId(String username, String contact);
+
 }

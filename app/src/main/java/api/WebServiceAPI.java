@@ -1,10 +1,9 @@
 package api;
 
-import com.example.freakner.Chat;
+import com.example.freakner.Message;
 import com.example.freakner.Post;
 import com.example.freakner.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -20,6 +19,10 @@ public interface WebServiceAPI {
     @GET("users")
     Call<List<User>> getUsers();
 
+    @GET("users/{id}")
+
+    Call<ApiUser> getUser(@Path("id") String id);
+
     @POST("users")
     Call<Void> createUser(@Body ApiUser user);
 
@@ -29,4 +32,12 @@ public interface WebServiceAPI {
     @POST("contacts")
     Call<Void> addContact(@Query("username") String username, @Body Cont c);
 
+    @POST("contacts/{contact}/messages/")
+    Call<Void> sendMessage(@Path("contact") String contact, @Query("username") String username,@Body Mess m);
+
+    @GET("contacts")
+    Call<List<ApiContact>> getContacts(@Query("username") String username);
+
+    @GET("contacts/{contact}/messages")
+    Call<List<Message>> getMessages(@Path("contact") String contact, @Query("username") String username);
 }

@@ -17,9 +17,9 @@ public class ApiUser {
 
         public String server;
 
-        public ArrayList<Post> contacts;
-
-        public ArrayList<Chat> chats;
+//        public ArrayList<Post> contacts;
+//
+//        public ArrayList<Chat> chats;
 
         public ApiUser(String username, String password, String nickName, String image, String server) {
             this.username = username;
@@ -27,17 +27,38 @@ public class ApiUser {
             this.nickName = nickName;
             this.image = image;
             this.server = server;
-            contacts = new ArrayList<Post>();
-            chats = new ArrayList<Chat>();
+//            contacts = new ArrayList<Post>();
+//            chats = new ArrayList<Chat>();
         }
+
+        public ApiUser(ApiUser u){
+            this.username = u.username;
+            this.nickName = u.nickName;
+            this.password = u.password;
+            this.image = "no Image";
+            this.server = u.server;
+//            contacts = u.contacts;
+//            chats = u.chats;
+        }
+
         public ApiUser(User u){
             this.username = u.username;
             this.nickName = u.nickName;
             this.password = u.password;
             this.image = "no Image";
             this.server = u.server;
-            contacts = new ArrayList<Post>();
-            chats = new ArrayList<Chat>();
+//            contacts = new ArrayList<Post>();
+//            chats = new ArrayList<Chat>();
         }
 
+    @Override
+    public String toString() {
+        return "ApiUser{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", image='" + image + '\'' +
+                ", server='" + server + '\'' +
+                '}';
+    }
 }

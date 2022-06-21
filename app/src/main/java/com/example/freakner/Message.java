@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import api.Mess;
+
 @Entity
 public class Message {
     @PrimaryKey(autoGenerate=true)
@@ -21,6 +23,14 @@ public class Message {
     public int chatId;
 
     public Message() {
+    }
+
+    public Message(int Id, String Content, String Type, String Created, Boolean Sent) {
+        this.id = Id;
+        this.Content = Content;
+        this.Type = Type;
+        this.Created = Created;
+        this.Sent = Sent;
     }
 
     public Message(String content, String type, Boolean sent, int chatId) {

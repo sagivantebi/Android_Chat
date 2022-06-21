@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 //import adapters.PostListAdapter;
 import api.PostAPI;
+import api.UserAPI;
 
 //import viewodels.PostsViewModel;
 
@@ -39,10 +40,12 @@ public class Contacts extends AppCompatActivity {
             startActivity(i);
         });
 
-        PostAPI postAPI = new PostAPI();
-        postAPI.get();
-        Log.i("hi","hi");
+//        PostAPI postAPI = new PostAPI();
+//        postAPI.get();
+//        Log.i("hi","hi");
 
+        UserAPI userAPI = new UserAPI();
+        userAPI.getUser(getApplicationContext(), db.userCon(), db.mesCon(), db.postCon(), username);
 
         ImageView imageSetting = findViewById(R.id.imageSetting);
         imageSetting.setOnClickListener(v -> {
@@ -65,7 +68,7 @@ public class Contacts extends AppCompatActivity {
         this.lvContacts.setOnItemClickListener((adapterView,view,i,l) ->{
             Intent intent = new Intent(this, ChatScreen.class);
             intent.putExtra("id",listConstacts.get(i).getId());
-            intent.putExtra("username", username);
+            intent.putExtra("username", username).putExtra("contact", listConstacts.get(i).getName());
             startActivity(intent);
         });
 
