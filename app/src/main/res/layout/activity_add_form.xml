@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8CDCB"
+    android:background="#090403"
     android:orientation="vertical"
     tools:context=".AddForm">
 
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="#000000"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,17 +23,20 @@
             android:id="@+id/addFormUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
             android:hint="Add This Username"
-            android:padding="10dp"></EditText>
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#F3F3F3"></EditText>
 
         <Button
             android:id="@+id/addFormButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Add"
             android:padding="10dp"
-            ></Button>
+            android:text="Add"></Button>
 
 
     </LinearLayout>

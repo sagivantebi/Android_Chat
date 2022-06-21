@@ -32,7 +32,7 @@ public class Contacts extends AppCompatActivity {
         this.lvContacts = findViewById(R.id.ListViewContacts);
         String username = getIntent().getStringExtra("username");
         this.username = username;
-        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
+        db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB6").allowMainThreadQueries().build();
         p = db.postCon();
         com.google.android.material.floatingactionbutton.FloatingActionButton btnAddContact = findViewById(R.id.btnAddContact);
         btnAddContact.setOnClickListener(v -> {

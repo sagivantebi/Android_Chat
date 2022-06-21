@@ -4,29 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8CDCB"
+    android:background="#F8EFEF"
     tools:context=".ChatScreen">
 
     <ListView
         android:id="@+id/listOneContact"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="364dp"></ListView>
+        tools:layout_editor_absoluteY="644dp" />
 
-        <ListView
-            android:id="@+id/ListViewMessages"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="40dp"
-            ></ListView>
+    <ListView
+        android:id="@+id/ListViewMessages"
+        android:layout_width="409dp"
+        android:layout_height="608dp"
+        android:background="#020202"
+        app:layout_constraintBottom_toBottomOf="@+id/listOneContact" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="#FFFFFF"
+        android:background="#000000"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -52,7 +53,8 @@
                 android:hint="@string/write_new_message"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                android:textColorHint="#6D4C41"
+                android:textColor="#8850EA"
+                android:textColorHint="#DDD8D7"
                 tools:ignore="MissingConstraints" />
 
 

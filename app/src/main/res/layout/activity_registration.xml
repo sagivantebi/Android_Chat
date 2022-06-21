@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8CDCB"
+    android:background="#000000"
     android:orientation="vertical"
     tools:context=".Registration">
 
@@ -24,9 +24,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:backgroundTint="#EDE5E5"
             android:ems="10"
             android:hint="@string/login_etUsername"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColorHint="#000000" />
 
 
         <EditText
@@ -35,9 +38,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="#F3F1F1"
             android:ems="10"
             android:hint="@string/nickname"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColorHint="#000000" />
 
 
         <EditText
@@ -46,8 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="#FAFAFA"
             android:ems="10"
-            android:hint="@string/login_etPassword" />
+            android:hint="@string/login_etPassword"
+            android:textColorHint="#000000" />
 
         <EditText
             android:id="@+id/reg_Password_ver"
@@ -55,16 +62,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:ems="10"
-            android:hint="@string/retype_password" />
+            android:hint="@string/retype_password"
+            android:textColorHint="#000000" />
 
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/imageButton"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            app:srcCompat="@android:drawable/ic_menu_gallery" />-->
 
         <Button
             android:id="@+id/btn_Register"
@@ -105,6 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/freaknet"
+            android:textColor="#FFFFFF"
             android:textSize="35dp" />
 
 

@@ -30,11 +30,12 @@ public class ChatScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         lvContacts = findViewById(R.id.listOneContact);
         lvMessages = findViewById(R.id.ListViewMessages);
-        db = Room.databaseBuilder(getApplicationContext(), AppDB.class, "ContactsDB5").allowMainThreadQueries().build();
+        db = Room.databaseBuilder(getApplicationContext(), AppDB.class, "ContactsDB6").allowMainThreadQueries().build();
         p = db.postCon();
         m = db.mesCon();
         int id = getIntent().getExtras().getInt("id");
@@ -42,15 +43,18 @@ public class ChatScreen extends AppCompatActivity {
         String username = getIntent().getStringExtra("username");
         String contact = getIntent().getStringExtra("contact");
         listMessages = m.getMessages(id);
-        adapterMessage = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listMessages);
+       // adapterMessage = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listMessages);
+        adapterMessage = new CustomListAdapterMess(getApplicationContext(), (ArrayList<Message>) listMessages,username,contact);
         lvMessages.setAdapter(adapterMessage);
 
         Button btn_sendMessage = findViewById(R.id.btn_sendMessage);
         btn_sendMessage.setOnClickListener(v -> {
             EditText editText = findViewById(R.id.new_message);
+            if(editText.getText().toString().equals(""))
+                return;
 //            Message message = new Message(0, editText.getText().toString(), "text", "date", true, "", "");
             Message message = new Message(editText.getText().toString(), "text", true, id);
-            insertMessage(message);
+            insertMessage(message, username, contact);
             PostAPI postAPI = new PostAPI();
             postAPI.sendMess(getApplicationContext(), username, contact,new Mess(editText.getText().toString()));
             adapterMessage.add(message);
@@ -61,16 +65,11 @@ public class ChatScreen extends AppCompatActivity {
 //            startActivity(intent);
         });
 
-        lvMessages.setOnItemLongClickListener((adapterView,view,i,l) ->{
-            Message message = listMessages.remove(i);
-            m.delete(message);
-            adapterMessage.notifyDataSetChanged();
-            return true;
-        });
 
         Post cont = p.get(id);
         listConstacts.add(cont);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listConstacts);
+//        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listConstacts);
+        adapter = new CustomListAdapterChat(getApplicationContext(), (ArrayList<Post>) listConstacts);
         lvContacts.setAdapter(adapter);
     }
     @Override
@@ -81,7 +80,11 @@ public class ChatScreen extends AppCompatActivity {
         adapterMessage.notifyDataSetChanged();
 
     }
-    protected void insertMessage(Message m) {
+    protected void insertMessage(Message m, String username, String contact) {
         this.m.insert(m);
+        Message mTag = new Message(m);
+        mTag.setSent(false);
+        mTag.chatId = db.postCon().getChatId(contact, username);
+        this.m.insert(mTag);
     }
 }

@@ -16,6 +16,8 @@ public interface PostCon {
     @Query("SELECT * FROM post")
     List<Post> index();
 
+
+
     @Insert
     void insert(Post... contacts);
 

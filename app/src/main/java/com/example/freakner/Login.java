@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
         EditText username = findViewById(R.id.editTextTextPersonName);
         EditText password = findViewById(R.id.editTextTextPassword);
 
-        AppDB db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
+        AppDB db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB6").allowMainThreadQueries().build();
         UserCon p = db.userCon();
         Context context = getApplicationContext();
 

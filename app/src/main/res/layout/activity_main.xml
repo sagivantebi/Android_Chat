@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8CDCB"
+    android:background="#000000"
     android:orientation="vertical"
     tools:context=".Login">
 
@@ -31,9 +31,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/login_etUsername"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColorHint="#050505" />
 
 
         <EditText
@@ -42,8 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:ems="10"
-            android:hint="@string/login_etPassword" />
+            android:hint="@string/login_etPassword"
+            android:textColorHint="#000000" />
 
 
         <Button
@@ -85,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/freaknet"
+            android:textColor="#F4F4F4"
             android:textSize="35dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

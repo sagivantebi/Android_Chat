@@ -6,11 +6,15 @@
         <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/drawable-anydpi/ic_chat.xml" value="0.1525" />
         <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/drawable-anydpi/ic_person.xml" value="0.1525" />
         <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_add_form.xml" value="0.264" />
-        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_chat.xml" value="0.25" />
-        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contact_left_box.xml" value="0.25" />
-        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contacts.xml" value="0.264" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_chat.xml" value="0.176" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contact_chat.xml" value="0.4" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contact_left_box.xml" value="0.4" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contact_mess.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contact_mess_right.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_contacts.xml" value="0.1642512077294686" />
         <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_registration.xml" value="0.264" />
+        <entry key="..\:/Users/Ganon/StudioProjects/FreakNet_Android/app/src/main/res/layout/activity_settings.xml" value="0.18070652173913043" />
         <entry key="..\:/Users/sagiv/AndroidStudioProjects/FreakNer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/sagiv/AndroidStudioProjects/FreakNer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/sagiv/AndroidStudioProjects/FreakNer/app/src/main/res/layout/activity_add_form.xml" value="0.264" />

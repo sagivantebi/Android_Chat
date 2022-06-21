@@ -31,7 +31,7 @@ public class Registration extends AppCompatActivity {
             EditText nickname = findViewById(R.id.reg_Nickname);
             EditText password = findViewById(R.id.reg_Password);
             EditText re_password = findViewById(R.id.reg_Password_ver);
-            AppDB db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB5").allowMainThreadQueries().build();
+            AppDB db = Room.databaseBuilder(getApplicationContext(),AppDB.class,"ContactsDB6").allowMainThreadQueries().build();
             UserCon p = db.userCon();
             if(p.get(username.getText().toString()) != null){
                 Context context = getApplicationContext();

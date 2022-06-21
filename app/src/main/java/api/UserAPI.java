@@ -110,7 +110,7 @@ public class UserAPI {
 
     public void insertAll(ArrayList<User> userList, AppDB db){
         for (User u : userList) {
-            //db.userCon().insert(u);
+            db.userCon().insert(u);
             insertContacts(u.username, db);
 
         }
@@ -118,7 +118,7 @@ public class UserAPI {
     public void insertContactsHelper(String username, ArrayList<ApiContact> contacts, AppDB adb){
         PostCon p = adb.postCon();
         for(ApiContact contact : contacts) {
-            //p.insert(new Post(contact, username));w
+            p.insert(new Post(contact, username));
             insertMessages(adb, username, contact.name);
         }
 

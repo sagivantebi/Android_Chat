@@ -17,6 +17,9 @@ public interface UserCon {
     @Query("SELECT * FROM User")
     List<User> index();
 
+    @Query("SELECT * FROM user WHERE username= :name")
+    User find(String name);
+
     @Insert
     void insert(User... users);
 
