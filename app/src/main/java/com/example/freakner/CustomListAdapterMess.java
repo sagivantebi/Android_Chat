@@ -35,6 +35,9 @@ public class CustomListAdapterMess extends ArrayAdapter<Message> {
         TextView message_content = convertView.findViewById(R.id.message_contact_left);
         message_content.setText(message.getContent());
         TextView userName = convertView.findViewById(R.id.username_message);
+        TextView time = convertView.findViewById(R.id.message_contact_time);
+        time.setText(message.getCreated());
+
         if (message.getSent())
             userName.setText(this.usernameMe);
         else
